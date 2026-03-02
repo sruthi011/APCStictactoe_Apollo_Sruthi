@@ -36,6 +36,29 @@ public class Board
     //valid if it resembles a 3x3 board that contains only E, X, O
     public boolean isValidBoardFile()
     {
+    	try
+    	{
+    	    File file = new File("src/tictactoe/" + this.filename);
+    	    Scanner scanner = new Scanner(file);
+    	    while(scanner.hasNextLine())
+    	    {
+    	    	String line = scanner.nextLine().trim();
+    	    	if(!line.matches("[EXO], [EXO],[EXO]"))
+    	    	{
+    	    		scanner.close();
+    	    		return false;
+    	    		
+    	    	}
+    		
+    	    }
+    	    scanner.close();
+    	    return true;
+    	}
+    	catch(Exception error)
+    	{
+    		error.printStackTrace();
+    		return false;
+    	}
     	
     
     }
@@ -44,6 +67,32 @@ public class Board
     //saves the grid to the file in the proper format (CSV)
     public void saveBoardToFile()
     {
+    	try
+    	{
+    		File file = new File("src/tictactoe/" + this.filename);
+    		FileWriter writer = new FileWriter(file);
+    		String boardContents = "";
+    		for(int row = 0; row < grid.length; row++)
+    		{
+    			for(int col = 0; col < grid[0].length; col++)
+    			{
+    				if(col < 2)
+    					boardContents += grid[row][col] + ",";
+    				else
+    					boardContents += grid[row][col];
+    					
+    				
+    			}
+    			if(row < 2)
+    				boardContents += "\n";
+    		}
+    		writer.write(boardContents);
+    		writer.close();
+    	}
+    	catch(Exception error)
+    	{
+    		error.printStackTrace();
+    	}
     	
     
     }
@@ -53,6 +102,14 @@ public class Board
     //prints the current grid
     public void printGrid()
     {
+    	for(int row = 0; row < this.grid.length; row++)
+    	{
+    		for(int col = 0; col < grid[0].length; col++)
+    		{
+    			System.out.print(grid[row][col] + " ");
+    		}
+    		System.out.println();
+    	}
     	
     }
     
