@@ -42,11 +42,11 @@ public class Board {
 			while (scanner.hasNextLine() && row < 3) {
 				String line = scanner.nextLine().trim();
 
-				// split the line by commas
+				
 				String[] values = line.split(",");
 
 				for (int col = 0; col < values.length && col < 3; col++) {
-					// trim in case of spaces
+					
 					grid[row][col] = values[col].trim().charAt(0);
 				}
 
