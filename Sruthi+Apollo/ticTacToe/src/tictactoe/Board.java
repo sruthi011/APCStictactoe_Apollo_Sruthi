@@ -78,6 +78,8 @@ public class Board {
 				}
 				
 				//count 
+				
+				
 				char first = line.charAt(0);
 				if(first == 'X') xCount++;
 				else if(first == 'O') oCount++;
