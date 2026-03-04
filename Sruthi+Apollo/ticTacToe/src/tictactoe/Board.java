@@ -65,23 +65,41 @@ public class Board {
 			File file = new File("src/tictactoe/" + this.filename);
 			Scanner scanner = new Scanner(file);
 
-			int rowCount = 0;
+			int xCount = 0, oCount = 0;
 
-			while (scanner.hasNextLine()) {
+			while (scanner.hasNextLine()) 
+			{
 				String line = scanner.nextLine().trim();
 
-				if (!line.matches("[EXO],[EXO],[EXO]")) {
+				if (!line.matches("[EXO],[EXO],[EXO]"))
+				{
 					scanner.close();
 					return false;
 				}
+				
+				//count 
+				char first = line.charAt(0);
+				if(first == 'X') xCount++;
+				else if(first == 'O') oCount++;
+				
+				char second = line.charAt(2);
+                if(second == 'X') xCount++;
+				else if(second == 'O') oCount++;
+                
+                char third = line.charAt(4);
+                if(third == 'X') xCount++;
+				else if(third == 'O') oCount++;
 
-				rowCount++;
+				
 			}
+			
+			
 
 			scanner.close();
+			return (xCount == oCount) || (xCount == oCount + 1);
 
-			//3 rows
-			return rowCount == 3;
+			
+			
 		} catch (Exception error) {
 			error.printStackTrace();
 			return false;
@@ -132,9 +150,7 @@ public class Board {
 		char randomBoard[][] = new char[3][3];
 		for (int row = 0; row < randomBoard.length; row++) {
 			char[] randomRow = { options[(int) (Math.random() * len)], options[(int) (Math.random() * len)],
-					options[(int) (Math.random() * len)]
-
-			};
+					options[(int) (Math.random() * len)]};
 
 			randomBoard[row] = randomRow;
 		}
@@ -151,7 +167,7 @@ public class Board {
 
 	}
 
-	public static void main(String args[]) {
+	public static void main(String args[]){
 		Board b = new Board("board.csv");
 		System.out.println(b.isValidBoardFile());
 		b.createRandomBoard();
