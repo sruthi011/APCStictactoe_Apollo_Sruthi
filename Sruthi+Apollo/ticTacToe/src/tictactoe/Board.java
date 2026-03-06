@@ -25,6 +25,11 @@ public class Board {
 			this.grid = new char[3][3];
 		}
 	}
+	
+	public char getCell(int row, int col)
+	{
+		return this.getCell(row, col);
+	}
 
 	// loads the grid with the file contents - [5 points]
 	public void loadBoardFromFile() {
