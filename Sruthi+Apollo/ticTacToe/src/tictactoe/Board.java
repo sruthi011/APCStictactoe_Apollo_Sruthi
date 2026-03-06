@@ -170,7 +170,8 @@ public class Board {
 	}
 
 	// create a random board
-	public void createRandomBoard() {
+	public void createRandomBoard() 
+	{
 		char[] options = { 'E', 'X', 'O' };
 		int len = options.length;
 		char randomBoard[][] = new char[3][3];
@@ -186,21 +187,23 @@ public class Board {
 	}
 
 	// clears the grid by placing E in every cell
-	public void clearBoard() {
+	public void clearBoard() 
+	{
 		char clearedBoard[][] = { { 'E', 'E', 'E' }, { 'E', 'E', 'E' }, { 'E', 'E', 'E' } };
 		this.grid = clearedBoard;
 		this.saveBoardToFile();
 
 	}
 
-	public static void main(String args[]){
+	public static void main(String args[])
+	{
 		Board b = new Board("board.csv");
 		System.out.println(b.isValidBoardFile());
-		b.createRandomBoard();
+		//b.createRandomBoard();
 		b.printGrid();
-		b.saveBoardToFile();
-		b.loadBoardFromFile();
-		System.out.println();
-		b.printGrid();
+		//b.saveBoardToFile();
+		//b.loadBoardFromFile();
+		//System.out.println();
+		//b.printGrid();
 	}
 }
