@@ -30,6 +30,16 @@ public class Board {
 	{
 		return this.getCell(row, col);
 	}
+	
+	public void setCell(int row, int col, char player)
+	{
+		grid[row][col] = player;
+	}
+	
+	public char[][] getGrid()
+	{
+		return this.getGrid();
+	}
 
 	// loads the grid with the file contents - [5 points]
 	public void loadBoardFromFile() {
