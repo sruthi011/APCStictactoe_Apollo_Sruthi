@@ -45,11 +45,7 @@ public class Board {
 	public void setGrid(char[][] newGrid)
 	{
 		this.grid = newGrid;
-<<<<<<< HEAD
 		this.saveBoardToFile();
-=======
-		
->>>>>>> 2eda17f31344c0e96ade6785043d8438cb3869d8
 
 		
 	}
