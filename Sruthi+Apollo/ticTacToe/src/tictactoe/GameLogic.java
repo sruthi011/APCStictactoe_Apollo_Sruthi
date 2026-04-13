@@ -51,27 +51,33 @@ public class GameLogic
 
         // Main diagonal check
         boolean diag1Win = true;
-        for (int i = 0; i < rows; i++) {
-            if (board.getCell(i, i) != player) {
+        for (int i = 0; i < rows; i++)
+        {
+            if (board.getCell(i, i) != player) 
+            {
                 diag1Win = false;
                 break;
             }
         }
 
-        if (diag1Win) {
+        if (diag1Win)
+        {
             return true;
         }
 
         // Other diagonal check
         boolean diag2Win = true;
-        for (int i = 0; i < rows; i++) {
-            if (board.getCell(i, cols - 1 - i) != player) {
+        for (int i = 0; i < rows; i++) 
+        {
+            if (board.getCell(i, cols - 1 - i) != player) 
+            {
                 diag2Win = false;
                 break;
             }
         }
 
-        if (diag2Win) {
+        if (diag2Win)
+        {
             return true;
         }
 
@@ -79,22 +85,27 @@ public class GameLogic
     }
 
     // Step 2: Draw Detection
-    public boolean isDraw(Board board) {
+    public boolean isDraw(Board board) 
+    {
         char[][] grid = board.getGrid();
         int rows = grid.length;
         int cols = grid[0].length;
 
         // If there is still an empty spot, not a draw
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
-                if (board.getCell(row, col) == 'E') {
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < cols; col++)
+            {
+                if (board.getCell(row, col) == 'E') 
+                {
                     return false;
                 }
             }
         }
 
         // No empty spots and no winner
-        if (!checkWin(board, 'X') && !checkWin(board, 'O')) {
+        if (!checkWin(board, 'X') && !checkWin(board, 'O'))
+        {
             return true;
         }
 
@@ -102,16 +113,20 @@ public class GameLogic
     }
 
     // Step 3: Game Over Logic
-    public boolean isGameOver(Board board) {
-        if (checkWin(board, 'X')) {
+    public boolean isGameOver(Board board) 
+    {
+        if (checkWin(board, 'X'))
+        {
             return true;
         }
 
-        if (checkWin(board, 'O')) {
+        if (checkWin(board, 'O')) 
+        {
             return true;
         }
 
-        if (isDraw(board)) {
+        if (isDraw(board))
+        {
             return true;
         }
 
