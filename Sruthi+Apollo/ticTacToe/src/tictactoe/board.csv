@@ -1,3 +1,8 @@
 X,X,O
+<<<<<<< Updated upstream
 E,O,E
 X,X,E
+=======
+E,E,O
+X,O,X
+>>>>>>> Stashed changes
