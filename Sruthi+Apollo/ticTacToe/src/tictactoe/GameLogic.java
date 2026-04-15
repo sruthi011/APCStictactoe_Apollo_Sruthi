@@ -132,4 +132,37 @@ public class GameLogic
 
         return false;
     }
+    
+    
+    public char getCurrentPlayer(Board board) 
+    {
+        int xCount = 0;
+        int oCount = 0;
+
+        char[][] grid = board.getGrid();
+        int rows = grid.length;
+        int cols = grid[0].length;
+
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < cols; col++) 
+            {
+                if (board.getCell(row, col) == 'X')
+                {
+                    xCount++;
+                } else if (board.getCell(row, col) == 'O') 
+                {
+                    oCount++;
+                }
+            }
+        }
+
+        if (xCount == oCount)
+        {
+            return 'X';
+        } else 
+        {
+            return 'O';
+        }
+    }
 }
