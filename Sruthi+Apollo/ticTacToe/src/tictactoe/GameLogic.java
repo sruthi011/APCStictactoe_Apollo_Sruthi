@@ -163,9 +163,37 @@ public class GameLogic
         } else 
         {
             return 'O';
-        }//jkjkjklj
-        //hello hello hello
-        /////dfjkdfjdlkfkd
+        }
         
     }
+    
+    
+    public boolean makeMove(Board board, int row, int col) 
+    {
+        char[][] grid = board.getGrid();
+        int rows = grid.length;
+        int cols = grid[0].length;
+
+        
+        if (row < 0 || row >= rows || col < 0 || col >= cols) 
+        {
+            return false;
+        }
+
+       
+        if (board.getCell(row, col) != 'E') 
+        {
+            return false;
+        }
+
+      
+        char currentPlayer = getCurrentPlayer(board);
+
+        
+        board.setCell(row, col, currentPlayer);
+
+        return true;
+    }
+
+
 }
