@@ -28,8 +28,7 @@ public class TicTacToeGUI extends JFrame implements ActionListener {
     private final JButton[][] cellButtons = new JButton[3][3];
     private final JLabel statusLabel = new JLabel("", SwingConstants.CENTER);
     private final JButton newGameButton = new JButton("New Game");
-    private final JButton randomButton = new JButton("Random Board");
-    private final JButton refreshButton = new JButton("Refresh");
+   
 
     private static final Color BG = new Color(30, 33, 41);
     private static final Color PANEL_BG = new Color(40, 44, 54);
@@ -109,26 +108,19 @@ public class TicTacToeGUI extends JFrame implements ActionListener {
         buttons.setBackground(BG);
 
         styleActionButton(newGameButton, new Color(94, 199, 255));
-        styleActionButton(randomButton, new Color(255, 184, 108));
-        styleActionButton(refreshButton, new Color(166, 226, 162));
+     
+  
 
         newGameButton.addActionListener(e -> {
             board.clearBoard();
             refreshBoard();
         });
-        randomButton.addActionListener(e -> {
-            board.createRandomBoard();
-            refreshBoard();
-            announceIfGameOver();
-        });
-        refreshButton.addActionListener(e -> {
-            board.clearBoard();
-            refreshBoard();
-        });
+   
+        
 
         buttons.add(newGameButton);
-        buttons.add(randomButton);
-        buttons.add(refreshButton);
+       
+    
         add(buttons, BorderLayout.SOUTH);
 
         pack();
