@@ -138,7 +138,7 @@ public class TicTacToeGUI extends JFrame implements ActionListener {
     private void styleActionButton(JButton b, Color accent) {
         b.setFont(new Font("SansSerif", Font.BOLD, 14));
         b.setBackground(accent);
-        b.setForeground(new Color(20, 22, 28));
+        b.setForeground(new Color(250, 250, 250));
         b.setFocusPainted(false);
         b.setBorder(BorderFactory.createEmptyBorder(10, 18, 10, 18));
         b.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
